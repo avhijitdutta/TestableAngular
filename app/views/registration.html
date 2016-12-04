@@ -1,0 +1,54 @@
+<div class="register-box">
+  <div class="register-logo">
+     <a><b>Contact</b>Management</a>
+  </div>
+
+  <div class="register-box-body">
+    <p class="login-box-msg">Register a new membership</p>
+
+    <form novalidate name="registration" ng-submit="registrationSubmit(registration)">
+      <div class="form-group has-feedback" ng-class="{'has-error':registration.fullname.$invalid && registration.fullname.$dirty}">
+        <input type="text" name="fullname" class="form-control" placeholder="Full name" ng-model="user.fullname" required>
+
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+         <span class="help-block" ng-show="registration.fullname.$invalid && registration.fullname.$dirty">Fullname is required</span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error':registration.email.$invalid && registration.email.$dirty}">
+        <input type="email" name="email" class="form-control" placeholder="Email" ng-model="user.email" required>
+
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <span class="help-block" ng-show="registration.email.$error.required && registration.email.$dirty">Email is required</span>
+
+          <span class="help-block" ng-show="!registration.email.$error.required &&registration.email.$invalid && registration.email.$dirty">Enter valid email id.</span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error':registration.password.$invalid && registration.password.$dirty}">
+        <input type="password" name="password" class="form-control" placeholder="Password" ng-model="user.password" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span class="help-block" ng-show="registration.password.$invalid && registration.password.$dirty">Password is required</span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error':registration.repassword.$invalid && registration.repassword.$dirty}">
+        <input type="password" name="repassword" class="form-control" placeholder="Retype password" ng-model="repassword" match="user.password">
+        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+        <span class="help-block" ng-show="registration.repassword.$invalid && registration.repassword.$dirty">Password does not match.</span>
+      </div>
+      <div class="row">
+        <!-- <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <input type="checkbox" icheck-box> I agree to the <a >terms</a>
+            </label>
+          </div>
+        </div> -->
+        <!-- /.col -->
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <a class="text-center membership" href="/#login">I already have a membership</a>
+  </div>
+  <!-- /.form-box -->
+</div>
+<!-- /.register-box -->

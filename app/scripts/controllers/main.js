@@ -9,9 +9,5 @@
  */
 angular.module('contactMgmtApp')
   .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    window.dispatchEvent(new Event('resize'));
   });
