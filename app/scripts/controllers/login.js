@@ -1,11 +1,10 @@
 'use strict';
 
-angular.module('contactMgmtApp').controller('loginCtrl', ['$scope','$location', function($scope,$location){
+angular.module('contactMgmtApp').controller('loginCtrl', ['$scope','$location','login', function($scope,$location,login){
 	
 	$scope.user={
 		email:'',
-		password:'',
-		remember:true
+		password:''
 	};
 	setTimeout(function() {
 		window.dispatchEvent(new Event('resize'));
@@ -14,8 +13,13 @@ angular.module('contactMgmtApp').controller('loginCtrl', ['$scope','$location', 
 
 	$scope.loginForm=function(loginForm){
 		if(loginForm.$valid){
-			console.log($scope.user);
-			$location.path('/main');
+			login.loginUser($scope.user).then(function(argument) {
+					console.log(argument);
+					$location.path('/main');
+				}, function(error) {
+      				console.error(error)
+    		});
+			
 		}else{
 			console.warn('login data not valid');
 		}

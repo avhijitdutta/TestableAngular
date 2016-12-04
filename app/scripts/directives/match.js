@@ -14,6 +14,7 @@ function match($parse) {
         require: '?ngModel',
         restrict: 'A',
         link: function (scope, elem, attrs, ctrl) {
+
             if (!ctrl) {
                 if (console && console.warn) {
                     console.warn('Match validation requires ngModel to be on the element');
@@ -36,7 +37,6 @@ function match($parse) {
                 if (angular.isObject(match) && match.hasOwnProperty('$viewValue')) {
                     match = match.$viewValue;
                 }
-
                 return match;
             }
         }

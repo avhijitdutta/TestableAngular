@@ -9,9 +9,5 @@
  */
 angular.module('contactMgmtApp')
   .controller('CreatecontactCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    
   });

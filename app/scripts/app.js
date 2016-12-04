@@ -15,22 +15,22 @@
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'loginCtrl',
-        title:'login-page'
+        class:'login-page'
       })
       .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        title:'layout-top-nav'
+        class:'layout-top-nav'
       })
       .when('/registration', {
         templateUrl: 'views/registration.html',
         controller: 'RegistrationCtrl',
-        title:'register-page'
+        class:'register-page'
       })
       .when('/createContact/:id', {
-        templateUrl: 'views/details.html',
+        templateUrl: 'views/createContact.html',
         controller: 'CreatecontactCtrl',
-        title:'sidebar-mini'
+        class:'layout-top-nav'
       })
       .otherwise({
         redirectTo: '/login'
@@ -39,6 +39,6 @@
 
   .run(['$rootScope',function($rootScope){
     $rootScope.$on('$routeChangeSuccess', function (event, current) {
-        $rootScope.title = current.$$route.title;
+        $rootScope.title = current.$$route.class;
     });
   }]);
